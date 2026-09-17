@@ -1,0 +1,82 @@
+backend:
+  name: github
+  repo: boussimanitou01/cdeco
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+locale: "fr"
+
+collections:
+  - name: "site"
+    label: "Contenu du site"
+    files:
+      - file: "content.json"
+        label: "Page d'accueil"
+        name: "content"
+        fields:
+          - label: "Section d'accueil (Hero)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Accroche", name: "kicker", widget: "string" }
+              - { label: "Titre principal", name: "title", widget: "string" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - { label: "Texte du bouton 1", name: "cta1", widget: "string" }
+              - { label: "Texte du bouton 2", name: "cta2", widget: "string" }
+
+          - label: "Message du président"
+            name: "president"
+            widget: "object"
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Fonction", name: "role", widget: "string" }
+              - { label: "Message", name: "message", widget: "text" }
+
+          - label: "Bureau exécutif national"
+            name: "team"
+            widget: "list"
+            summary: "{{name}} — {{role}}"
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Fonction", name: "role", widget: "string" }
+              - { label: "Biographie", name: "bio", widget: "text" }
+              - { label: "Photo", name: "photo", widget: "image" }
+
+          - label: "Kampus CDECO"
+            name: "kampus"
+            widget: "object"
+            fields:
+              - { label: "Citation", name: "quote", widget: "string" }
+              - { label: "Texte de présentation", name: "intro", widget: "text" }
+              - { label: "Directeur", name: "director", widget: "string" }
+
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Adresse du siège", name: "address_siege", widget: "string" }
+              - { label: "Téléphone du siège", name: "phone_siege", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Site web", name: "website", widget: "string" }
+              - { label: "Adresse Kampus", name: "address_kampus", widget: "string" }
+              - { label: "Téléphone Kampus", name: "phone_kampus", widget: "string" }
+
+  - name: "articles"
+    label: "Actualités"
+    files:
+      - file: "articles.json"
+        label: "Liste des articles"
+        name: "articles"
+        fields:
+          - label: "Articles"
+            name: "articles"
+            widget: "list"
+            summary: "{{title}} — {{date}}"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Date de publication", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Résumé (affiché sur la carte)", name: "excerpt", widget: "text" }
+              - { label: "Image de couverture", name: "cover", widget: "image", required: false }
+              - { label: "Contenu de l'article", name: "body", widget: "text" }
