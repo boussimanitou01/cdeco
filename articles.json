@@ -1,0 +1,18 @@
+{
+  "articles": [
+    {
+      "title": "La CDECO s'installe officiellement en République du Congo",
+      "date": "2025-10-15",
+      "excerpt": "Sous l'impulsion de son président national Arnold Wesley Akina, la Chambre de Diplomatie Économique du Congo ouvre son siège à Brazzaville et invite gouvernements, acteurs économiques et institutions régionales à s'unir à sa mission.",
+      "cover": "images/hero-siege.jpg",
+      "body": "La Chambre de Diplomatie Économique du Congo (CDECO) s'installe officiellement en République du Congo, sous l'impulsion du leadership stratégique de son président national, Arnold Wesley Akina.\n\nCette étape fondatrice incarne une vision claire : bâtir des ponts durables en faveur d'une Afrique connectée, économiquement influente et commercialement active sur la scène internationale.\n\nSur le plan national, l'institution s'engage à promouvoir les relations économiques et commerciales du Congo. Sur le plan international, elle ambitionne de devenir une interface stratégique entre le Congo, les États africains et les partenaires internationaux."
+    },
+    {
+      "title": "Lancement du Kampus CDECO : accompagner l'élite congolaise",
+      "date": "2025-11-02",
+      "excerpt": "La CDECO lance le Kampus CDECO, une plateforme académique dédiée aux étudiants, jeunes diplômés et jeunes entrepreneurs congolais, sous la direction de Flavien-Prisque Gonga-Essouah.",
+      "cover": "images/kampus-groupe.jpg",
+      "body": "La CDECO a lancé le Kampus CDECO — une plateforme académique dédiée aux jeunes étudiants et entrepreneurs congolais, sous la direction de Flavien-Prisque Gonga-Essouah.\n\nLe Kampus vise à rapprocher les sphères académique, institutionnelle et économique afin de faire émerger une élite compétente au service du Congo et du continent africain.\n\n« Accompagner l'élite, c'est bâtir l'avenir. »"
+    }
+  ]
+}
