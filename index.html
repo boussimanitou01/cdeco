@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDECO — Chambre de Diplomatie Économique du Congo</title>
+<meta name="description" content="La Chambre de Diplomatie Économique du Congo relie les entreprises, les institutions et la diaspora congolaise aux marchés d'Afrique et du monde.">
+<link rel="icon" href="images/logo-badge.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { 50:'#EEF1FA', 100:'#DCE2F3', 400:'#3A4E8C', 700:'#132A6B', 800:'#0F2159', 900:'#0A1A4F', 950:'#070F33' },
+          crimson: { 50:'#FBEAE9', 100:'#F5CFCC', 500:'#D8534E', 600:'#C23A34' },
+          gold: { 400:'#DDBB6C', 500:'#CBA044', 600:'#B3872F' },
+          cream: { 50:'#FAF9F5', 100:'#F3F0E8' },
+          ink: '#12172B',
+        },
+        fontFamily: { serif: ['Fraunces','serif'], sans: ['Inter','sans-serif'] },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family:'Inter',sans-serif; color:#12172B; background:#FAF9F5; }
+  .font-serif { font-family:'Fraunces',serif; font-optical-sizing:auto; }
+  ::selection { background:#CBA044; color:#0A1A4F; }
+  details > summary { list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker { display:none; }
+  details[open] .chev { transform:rotate(45deg); }
+  .chev { transition:transform .25s ease; }
+  .mobile-link { border-bottom:1px solid rgba(10,26,79,.08); padding-bottom:1.05rem; }
+
+  .reveal { opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+  .reveal.in { opacity:1; transform:translateY(0); }
+
+  .hero-frame::before {
+    content:''; position:absolute; inset:18px -18px -18px 18px;
+    border:2px solid #CBA044; z-index:0; border-radius:.75rem;
+  }
+  .hero-frame img { position:relative; z-index:1; }
+
+  #article-modal { backdrop-filter: blur(3px); }
+  .modal-body p { margin-bottom:1rem; line-height:1.75; color:rgba(18,23,43,.8); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-cream-50 text-ink antialiased">
+
+<!-- ============ NAV ============ -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 bg-cream-50/90 backdrop-blur border-b border-navy-900/8">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+    <a href="#top" class="flex items-center gap-3">
+      <img src="images/logo-badge.png" alt="Logo CDECO" class="h-11 w-11 object-contain">
+      <span class="font-serif text-xl text-navy-900 tracking-tight">CDECO</span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-8 text-sm text-navy-900" id="nav-links">
+      <a href="#apropos" class="hover:text-crimson-600 transition-colors">À propos</a>
+      <a href="#missions" class="hover:text-crimson-600 transition-colors">Missions</a>
+      <a href="#economie" class="hover:text-crimson-600 transition-colors">Économie</a>
+      <a href="#programme" class="hover:text-crimson-600 transition-colors">Programme</a>
+      <a href="#bureau" class="hover:text-crimson-600 transition-colors">Bureau exécutif</a>
+      <a href="#kampus" class="hover:text-crimson-600 transition-colors">Kampus CDECO</a>
+      <a href="#actualites" class="hover:text-crimson-600 transition-colors">Actualités</a>
+      <a href="#adhesion" class="px-5 py-2.5 rounded-full bg-crimson-500 text-white hover:bg-crimson-600 transition-colors">Rejoindre</a>
+    </div>
+
+    <button id="menu-toggle" class="lg:hidden text-navy-900 p-2" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg id="icon-open" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M3 7h20M3 13h20M3 19h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg id="icon-close" width="26" height="26" viewBox="0 0 26 26" fill="none" class="hidden"><path d="M5 5l16 16M21 5L5 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden lg:hidden bg-cream-50 text-navy-900 border-t border-navy-900/8">
+    <div class="px-6 py-6 flex flex-col gap-5 text-base">
+      <a href="#apropos" class="mobile-link">À propos</a>
+      <a href="#missions" class="mobile-link">Missions</a>
+      <a href="#economie" class="mobile-link">Économie</a>
+      <a href="#programme" class="mobile-link">Programme</a>
+      <a href="#bureau" class="mobile-link">Bureau exécutif</a>
+      <a href="#kampus" class="mobile-link">Kampus CDECO</a>
+      <a href="#actualites" class="mobile-link">Actualités</a>
+      <a href="#adhesion" class="mobile-link">Rejoindre la CDECO</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="pt-40 pb-24 lg:pt-48 lg:pb-32 bg-cream-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-14 items-center">
+    <div class="lg:col-span-6 reveal" id="hero-text">
+      <p class="text-crimson-600 text-sm font-medium mb-5" data-bind="hero.kicker">République du Congo — Brazzaville</p>
+      <h1 class="font-serif text-navy-900 text-5xl sm:text-6xl leading-[1.08] mb-7" data-bind="hero.title">Agir localement, rayonner globalement.</h1>
+      <p class="text-lg text-ink/70 leading-relaxed max-w-lg mb-9" data-bind="hero.subtitle">La Chambre de Diplomatie Économique du Congo relie les entreprises, les institutions publiques et la diaspora congolaise aux marchés d'Afrique et du monde — par le dialogue, l'investissement et la coopération.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#adhesion" class="px-7 py-3.5 bg-crimson-500 text-white font-medium rounded-full hover:bg-crimson-600 transition-colors" data-bind="hero.cta1">Rejoindre la CDECO</a>
+        <a href="#contact" class="px-7 py-3.5 border border-navy-900/20 text-navy-900 rounded-full hover:border-navy-900 transition-colors" data-bind="hero.cta2">Nous contacter</a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-6 relative reveal" id="hero-image" style="transition-delay:.15s">
+      <div class="relative hero-frame">
+        <img src="images/hero-siege.jpg" alt="Siège de la diplomatie économique à Brazzaville" class="w-full aspect-square object-cover rounded-xl shadow-xl">
+        <div class="absolute -bottom-6 -left-6 z-10 bg-navy-900 text-cream-50 px-6 py-4 rounded-lg shadow-lg hidden sm:block">
+          <p class="font-serif text-lg leading-none">CDECO</p>
+          <p class="text-xs text-gold-400 mt-1">Est. République du Congo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MESSAGE DU PRESIDENT ============ -->
+<section id="apropos" class="bg-white py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-14 items-center">
+    <div class="lg:col-span-5 order-2 lg:order-1">
+      <img src="images/ceremonie.jpg" alt="Cérémonie officielle de la CDECO" class="w-full h-[420px] object-cover rounded-xl shadow-md">
+    </div>
+    <div class="lg:col-span-6 lg:col-start-7 order-1 lg:order-2">
+      <p class="text-crimson-600 text-sm mb-3">Le mot du président</p>
+      <h2 class="font-serif text-3xl lg:text-4xl text-navy-900 leading-tight mb-6">Une diplomatie économique ancrée dans les réalités africaines</h2>
+      <p class="text-[17px] leading-relaxed text-ink/75 mb-6" data-bind="president.message">Sous l'impulsion de son président national, Arnold Wesley Akina, la CDECO s'installe officiellement en République du Congo. Cette étape fondatrice incarne une vision claire : bâtir des ponts durables en faveur d'une Afrique connectée, économiquement influente et commercialement active sur la scène internationale.</p>
+      <p class="font-serif text-navy-900" data-bind="president.name">Arnold Wesley Akina</p>
+      <p class="text-sm text-ink/50" data-bind="president.role">Président National</p>
+
+      <div class="grid sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-navy-900/10">
+        <div>
+          <p class="font-serif text-xl text-navy-900 mb-1">Intégrité</p>
+          <p class="text-sm text-ink/60">Éthique, responsabilité, transparence.</p>
+        </div>
+        <div>
+          <p class="font-serif text-xl text-navy-900 mb-1">Leadership</p>
+          <p class="text-sm text-ink/60">Anticiper et proposer des solutions.</p>
+        </div>
+        <div>
+          <p class="font-serif text-xl text-navy-900 mb-1">Excellence</p>
+          <p class="text-sm text-ink/60">Qualité et impact constants.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISION + MISSIONS ============ -->
+<section id="missions" class="bg-navy-50 py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-14 mb-20">
+      <div class="lg:col-span-4">
+        <p class="text-crimson-600 text-sm mb-3">Notre vision</p>
+        <h2 class="font-serif text-3xl lg:text-4xl text-navy-900 leading-tight">Le Congo, hub stratégique d'attractivité économique</h2>
+      </div>
+      <p class="lg:col-span-7 lg:col-start-6 text-lg text-ink/70 leading-relaxed">
+        Positionner la République du Congo comme un hub d'attractivité économique en Afrique et à l'international, en bâtissant un écosystème diplomatique inclusif où les acteurs congolais s'intègrent aux grandes chaînes de valeur régionales et mondiales.
+      </p>
+    </div>
+
+    <p class="text-crimson-600 text-sm mb-8">Axes de missions prioritaires</p>
+    <div class="grid md:grid-cols-2 gap-x-14 gap-y-2 bg-white rounded-2xl p-4 sm:p-10 shadow-sm">
+      <div class="flex gap-5 py-6 border-t border-navy-900/10">
+        <span class="text-crimson-600 font-serif text-xl">01</span>
+        <div>
+          <p class="font-medium text-navy-900 mb-1.5">Facilitation des échanges</p>
+          <p class="text-sm text-ink/60 leading-relaxed">Promouvoir les flux économiques, commerciaux et diplomatiques entre le Congo, l'Afrique et le reste du monde.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 py-6 border-t border-navy-900/10">
+        <span class="text-crimson-600 font-serif text-xl">02</span>
+        <div>
+          <p class="font-medium text-navy-900 mb-1.5">Soutien aux PME / PMI</p>
+          <p class="text-sm text-ink/60 leading-relaxed">Favoriser la croissance des entreprises locales, régionales et africaines sur les marchés nationaux et internationaux.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 py-6 border-t border-navy-900/10">
+        <span class="text-crimson-600 font-serif text-xl">03</span>
+        <div>
+          <p class="font-medium text-navy-900 mb-1.5">Plateforme d'intermédiation</p>
+          <p class="text-sm text-ink/60 leading-relaxed">Offrir un espace de dialogue entre acteurs économiques, institutions publiques et diaspora africaine.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 py-6 border-t border-navy-900/10">
+        <span class="text-crimson-600 font-serif text-xl">04</span>
+        <div>
+          <p class="font-medium text-navy-900 mb-1.5">Climat des affaires</p>
+          <p class="text-sm text-ink/60 leading-relaxed">Renforcer l'attractivité économique du Congo et encourager les investissements durables.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 py-6 border-t border-navy-900/10">
+        <span class="text-crimson-600 font-serif text-xl">05</span>
+        <div>
+          <p class="font-medium text-navy-900 mb-1.5">Diplomatie commerciale</p>
+          <p class="text-sm text-ink/60 leading-relaxed">Utiliser l'influence économique africaine comme outil de rayonnement et de coopération.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 py-6 border-t border-navy-900/10">
+        <span class="text-crimson-600 font-serif text-xl">06</span>
+        <div>
+          <p class="font-medium text-navy-900 mb-1.5">Renforcement des capacités</p>
+          <p class="text-sm text-ink/60 leading-relaxed">Soutenir l'entrepreneuriat, l'innovation et le développement des compétences.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ECONOMIE ============ -->
+<section id="economie" class="bg-white py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-14 mb-16">
+      <div class="lg:col-span-4">
+        <p class="text-crimson-600 text-sm mb-3">Contexte économique</p>
+        <h2 class="font-serif text-3xl lg:text-4xl text-navy-900 leading-tight">Une économie en diversification</h2>
+      </div>
+      <p class="lg:col-span-7 lg:col-start-6 text-lg text-ink/70 leading-relaxed">
+        Le secteur économique congolais affiche une dynamique prometteuse : diversification progressive des activités, montée en puissance de l'entrepreneuriat local et fort potentiel dans l'agriculture, l'industrie, l'énergie, le numérique et les infrastructures.
+      </p>
+    </div>
+
+    <img src="images/congo-economie.jpg" alt="Pont Charles-de-Gaulle, Brazzaville" class="w-full h-[340px] sm:h-[420px] object-cover rounded-2xl shadow-md mb-16">
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="border-l-2 border-crimson-500 pl-6">
+        <p class="font-serif text-4xl text-navy-900 mb-2">42%</p>
+        <p class="text-xs tracking-wide text-crimson-600 mb-2">Hydrocarbures / Pétrole</p>
+        <p class="text-sm text-ink/60 leading-relaxed">du PIB — 80% des exportations et 60% des recettes fiscales.</p>
+      </div>
+      <div class="border-l-2 border-gold-500 pl-6">
+        <p class="font-serif text-4xl text-navy-900 mb-2">70%</p>
+        <p class="text-xs tracking-wide text-crimson-600 mb-2">Industrie extractive / Mines &amp; forêts</p>
+        <p class="text-sm text-ink/60 leading-relaxed">du territoire couvert de forêt ; secteur manufacturier autour de 6,5% du PIB.</p>
+      </div>
+      <div class="border-l-2 border-navy-700 pl-6">
+        <p class="font-serif text-4xl text-navy-900 mb-2">30%</p>
+        <p class="text-xs tracking-wide text-crimson-600 mb-2">Agriculture &amp; Agro-industrie</p>
+        <p class="text-sm text-ink/60 leading-relaxed">de la population active, pour un secteur représentant environ 6% du PIB.</p>
+      </div>
+      <div class="border-l-2 border-crimson-500 pl-6">
+        <p class="font-serif text-4xl text-navy-900 mb-2">33%</p>
+        <p class="text-xs tracking-wide text-crimson-600 mb-2">Services</p>
+        <p class="text-sm text-ink/60 leading-relaxed">du PIB — télécoms, commerce, transports et services financiers.</p>
+      </div>
+    </div>
+    <p class="text-xs text-ink/35 mt-10">Sources : Banque mondiale, Groupe Crédit Agricole International — publications sur la diversification économique de la République du Congo.</p>
+  </div>
+</section>
+
+<!-- ============ PROGRAMME D'ACTIVITES ============ -->
+<section id="programme" class="bg-navy-50 py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-14 mb-16">
+      <div class="lg:col-span-4">
+        <p class="text-crimson-600 text-sm mb-3">Programme d'activités</p>
+        <h2 class="font-serif text-3xl lg:text-4xl text-navy-900 leading-tight">Sept axes pour bâtir la coopération économique</h2>
+      </div>
+      <p class="lg:col-span-7 lg:col-start-6 text-lg text-ink/70 leading-relaxed">
+        Pour renforcer la coopération intelligente et la diplomatie économique entre le Congo, l'Afrique et le monde, la CDECO articule ses activités autour de sept axes. Ouvrez chacun pour découvrir l'objectif et les actions prévues.
+      </p>
+    </div>
+
+    <div class="divide-y divide-navy-900/10 border-y border-navy-900/10 bg-white rounded-2xl px-4 sm:px-10 shadow-sm">
+
+      <details class="group py-2">
+        <summary class="flex items-center justify-between gap-6 py-6">
+          <div class="flex items-baseline gap-6">
+            <span class="font-serif text-crimson-600 text-xl w-6">1</span>
+            <span class="font-serif text-xl sm:text-2xl text-navy-900">Organisation de forums &amp; missions économiques</span>
+          </div>
+          <span class="chev shrink-0 text-2xl text-crimson-600">+</span>
+        </summary>
+        <div class="pl-12 pb-8 max-w-2xl text-ink/70 leading-relaxed">
+          <p class="mb-3"><strong class="text-navy-900">Objectif :</strong> créer des espaces de dialogue entre acteurs économiques nationaux et internationaux.</p>
+          <ul class="space-y-2 text-sm list-disc list-inside">
+            <li>Forum annuel CDECO « Diplomatie &amp; Marchés Émergents »</li>
+            <li>Missions économiques B2B et B2C (Congo ↔ Afrique / Europe / Asie / Amérique / Diaspora)</li>
+            <li>Rencontres d'affaires thématiques avec les ambassades et chambres partenaires</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="group py-2">
+        <summary class="flex items-center justify-between gap-6 py-6">
+          <div class="flex items-baseline gap-6">
+            <span class="font-serif text-crimson-600 text-xl w-6">2</span>
+            <span class="font-serif text-xl sm:text-2xl text-navy-900">Renforcement des capacités &amp; accompagnement</span>
+          </div>
+          <span class="chev shrink-0 text-2xl text-crimson-600">+</span>
+        </summary>
+        <div class="pl-12 pb-8 max-w-2xl text-ink/70 leading-relaxed">
+          <p class="mb-3"><strong class="text-navy-900">Objectif :</strong> former, outiller et structurer les entreprises locales pour accéder aux marchés.</p>
+          <ul class="space-y-2 text-sm list-disc list-inside">
+            <li>Formations en diplomatie économique, commerce international, levée de fonds et négociation</li>
+            <li>Programme « Diaspora Connect » pour la réintégration des expertises africaines à l'étranger</li>
+            <li>Accompagnement à la certification et à l'internationalisation des PME, PMI et start-up</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="group py-2">
+        <summary class="flex items-center justify-between gap-6 py-6">
+          <div class="flex items-baseline gap-6">
+            <span class="font-serif text-crimson-600 text-xl w-6">3</span>
+            <span class="font-serif text-xl sm:text-2xl text-navy-900">Plateformes de dialogue public-privé</span>
+          </div>
+          <span class="chev shrink-0 text-2xl text-crimson-600">+</span>
+        </summary>
+        <div class="pl-12 pb-8 max-w-2xl text-ink/70 leading-relaxed">
+          <p class="mb-3"><strong class="text-navy-900">Objectif :</strong> faciliter la concertation entre l'État, le secteur privé, les partenaires techniques et les diasporas.</p>
+          <ul class="space-y-2 text-sm list-disc list-inside">
+            <li>Création d'un Observatoire CDECO du climat des affaires</li>
+            <li>Table ronde annuelle sur les politiques d'attractivité du Congo</li>
+            <li>Rencontres sectorielles multi-acteurs</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="group py-2">
+        <summary class="flex items-center justify-between gap-6 py-6">
+          <div class="flex items-baseline gap-6">
+            <span class="font-serif text-crimson-600 text-xl w-6">4</span>
+            <span class="font-serif text-xl sm:text-2xl text-navy-900">Promotion du secteur congolais à l'international</span>
+          </div>
+          <span class="chev shrink-0 text-2xl text-crimson-600">+</span>
+        </summary>
+        <div class="
