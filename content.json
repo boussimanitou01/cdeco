@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "kicker": "République du Congo — Brazzaville",
+    "title": "Agir localement, rayonner globalement.",
+    "subtitle": "La Chambre de Diplomatie Économique du Congo relie les entreprises, les institutions publiques et la diaspora congolaise aux marchés d'Afrique et du monde — par le dialogue, l'investissement et la coopération.",
+    "cta1": "Rejoindre la CDECO",
+    "cta2": "Nous contacter"
+  },
+  "president": {
+    "name": "Arnold Wesley Akina",
+    "role": "Président National",
+    "message": "Sous l'impulsion de son président national, Arnold Wesley Akina, la CDECO s'installe officiellement en République du Congo. Cette étape fondatrice incarne une vision claire : bâtir des ponts durables en faveur d'une Afrique connectée, économiquement influente et commercialement active sur la scène internationale. Porteuse d'une ambition pour un développement économique plus dynamique et un écosystème entrepreneurial inclusif, la CDECO se positionne comme un catalyseur de coopération intelligente, d'innovation économique et de diplomatie proactive."
+  },
+  "team": [
+    {
+      "name": "Arnold Wesley Akina",
+      "role": "Président national",
+      "bio": "Expert en diplomatie commerciale et développement de relations économiques internationales B2B, B2C, B2G. Directeur général — Cabinet Conseils ANIG-Congo.",
+      "photo": "images/akina.jpg"
+    },
+    {
+      "name": "Makoumbou Laurensaint",
+      "role": "Secrétaire général",
+      "bio": "Directeur général de MAK Legacy, expert en management commercial et organisationnel. Œuvre à la mobilisation des ressources et à l'animation des relations public-privé.",
+      "photo": "images/laurensaint.jpg"
+    },
+    {
+      "name": "Nguili Akanda Rachel",
+      "role": "Conseillère économique & chargée de relations avec la diaspora / France",
+      "bio": "Cheffe d'entreprise au leadership collaboratif, elle facilite les échanges bilatéraux entre le Congo et la France et encourage les partenariats économiques.",
+      "photo": "images/rachel.jpg"
+    },
+    {
+      "name": "Dakar Boteba née N'Goma Michalvie",
+      "role": "Trésorière générale & chargée de l'entrepreneuriat féminin",
+      "bio": "Cheffe du Bureau d'Agrément des Projets (DEAP) au FONEA. Engagée pour l'autonomisation économique des femmes et un écosystème entrepreneurial équitable.",
+      "photo": "images/michalvie.jpg"
+    }
+  ],
+  "kampus": {
+    "quote": "Accompagner l'élite, c'est bâtir l'avenir.",
+    "intro": "Une plateforme académique et professionnelle dédiée aux étudiants, jeunes diplômés et jeunes entrepreneurs congolais, conçue pour rapprocher les sphères académique, institutionnelle et économique et faire émerger une élite compétente au service du continent.",
+    "director": "Dirigée par Flavien-Prisque Gonga-Essouah"
+  },
+  "contact": {
+    "address_siege": "Moungali, Centre-Ville, Brazzaville",
+    "phone_siege": "+242 05 595 8119",
+    "email": "contact@cdeco.com",
+    "website": "www.cdeco.org",
+    "address_kampus": "n°106, Av. Amilcar Cabral, 1er niveau derrière Alima, Centre-ville Mpila, Brazzaville",
+    "phone_kampus": "+242 06 673 0118"
+  }
+  }
