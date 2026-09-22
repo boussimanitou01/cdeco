@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: boussimanitou01/cdeco
+  repo: boussimanitou01/cdeco-site
   branch: main
 
 media_folder: "images/uploads"
